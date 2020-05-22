@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public Slider _slider;
     public Image _fillArea;
 
+    public PipeSpawner _spawner;
+
     private void Start()
     {
         for (int i = 0; i < _lives.Length; i++)
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearScreen()
     {
-
+        _spawner.DeleteAll();
     }
 
     private void GameOver()

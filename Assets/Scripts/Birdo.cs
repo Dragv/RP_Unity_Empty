@@ -62,14 +62,19 @@ public class Birdo : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Pipe")
-        {
-            HitPipe();
-        }
+        
 
         if (collision.gameObject.tag == "Ground")
         {
             Die();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            HitPipe();
         }
     }
 
@@ -79,6 +84,7 @@ public class Birdo : MonoBehaviour
         {
             Die();
         }
+        _lives--;
 
         GameManager.instance.ClearScreen();
     }

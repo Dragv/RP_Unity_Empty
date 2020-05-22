@@ -41,4 +41,14 @@ public class PipeSpawner : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x, transform.position.y + modifier, transform.position.z);
     }
+
+    public void DeleteAll() 
+    {
+        while (pipes.Count >= 0)
+        {
+            GameObject killedObject = pipes.Dequeue();
+            Destroy(killedObject);
+
+        }
+    }
 }
